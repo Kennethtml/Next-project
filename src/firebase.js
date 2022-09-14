@@ -6,7 +6,15 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+
+
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZQYiMJrge1ZClMzj0NpMr2v0m6Wj17dw",
@@ -18,13 +26,20 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-export const createUserwithAuth = async (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password);
+export const auth = getAuth(app);
+
+//create new user with email sign in
+export const createUserwithAuth =  (email, password) => {
+ return createUserWithEmailAndPassword(auth, email, password)
+   
 };
 
-export const authEventListener = async (callback) => {
-  const res = onAuthStateChanged(auth, callback);
+
+
+
+//observe auth state change
+export const authEventListener = (callback) => {
+   onAuthStateChanged(auth, callback);
 };
 
 export const signUserOut = () => signOut(auth);
@@ -32,14 +47,11 @@ export const signUserOut = () => signOut(auth);
 //authentication with google auth provider
 
 const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+  prompt: "select_account",
+});
 
-export const signInwithGoogleProvider = () =>
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(error);
-    });
+export const signInwithGoogleProvider = () => signInWithPopup(auth, provider)
+
+export const signInUser = (email, password) => signInWithEmailAndPassword(auth,email,password)
+export const resetUserPassword=(email)=>sendPasswordResetEmail(auth,email)

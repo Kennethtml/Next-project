@@ -1,0 +1,105 @@
+.form {
+    // border:1px solid var(--color-secondary);
+    min-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    background:#fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px var(--placeholders);
+
+  }
+
+  h1{
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .message{
+      color:rgba(21, 3, 71, 0.827);
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgb(129, 114, 255);
+    // font-weight: 700;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+  }
+  .error{
+    color:rgba(54, 6, 6, 0.827);
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgb(255, 208, 216);
+    // font-weight: 700;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+
+  label{
+     margin-bottom: 5px;
+     font-weight: 500;
+     font-size: 12px;
+
+  }
+
+  input{
+    padding:10px 10px;
+    width:260px;
+    border-radius: 5px;
+    border: 2px solid var(--placeholders);
+    margin-bottom: 10px;
+    // background:var(--color-primary);
+
+    &::placeholder{
+        color:var(--placeholders);
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.btn{
+     padding:10px 10px;
+    width:260px;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--color-secondary);
+    color:var(--color-primary);
+    margin-bottom: 15px;
+    cursor: pointer;
+     border-color: var(--color-secondary);
+      outline: none;
+
+}
+
+.btn-google{
+    color:var(--color-secondary);
+    background: var(--color-primary);
+    background: #fff;
+    position:relative;
+    border-color: var(--color-secondary);
+    outline: none;
+
+    img{
+        display:block;
+        width:30px;
+        height:30px;
+        position: absolute;
+        top:4px;
+        left:40px;
+
+    }
+}
+}
